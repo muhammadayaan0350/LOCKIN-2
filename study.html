@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOCKIN — Study</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="study-page">
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-box">L</span>
+            LOCKIN
+        </a>
+
+        <div class="environment">
+            <span>ENVIRONMENT</span>
+            <strong>📚 STUDY</strong>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" data-section="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-section="tasks">
+                <span>✓</span>
+                Tasks
+            </button>
+
+            <button class="nav-item" data-section="timer">
+                <span>◷</span>
+                Focus Timer
+            </button>
+
+            <button class="nav-item" data-section="subjects">
+                <span>▦</span>
+                Subjects
+            </button>
+
+            <button class="nav-item" data-section="analytics">
+                <span>◒</span>
+                Analytics
+            </button>
+
+            <button class="nav-item" data-section="calendar">
+                <span>□</span>
+                Calendar
+            </button>
+
+            <button class="nav-item" data-section="profile">
+                <span>◎</span>
+                Profile
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="studyTheme" class="side-button">
+                ☼ <span>Toggle Theme</span>
+            </button>
+
+            <a href="index.html" class="side-button back-button">
+                ← <span>Change Mode</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <p class="page-kicker">STUDY ENVIRONMENT</p>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <div class="top-actions">
+                <button id="focusMode" class="outline-button">
+                    ⛶ Focus Mode
+                </button>
+
+                <button id="quoteButton" class="circle-button">
+                    ✦
+                </button>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section class="page-section active" id="dashboard">
+
+            <div class="welcome-card">
+
+                <div>
+                    <span class="eyebrow">TODAY</span>
+                    <h2>Lock in. No excuses.</h2>
+                    <p id="quote">
+                        Small progress is still progress.
+                    </p>
+                </div>
+
+                <div class="streak">
+                    <span>🔥</span>
+                    <strong id="streakValue">1</strong>
+                    <small>DAY STREAK</small>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>FOCUS TIME</span>
+                    <strong id="focusStat">0m</strong>
+                    <small>Today</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>SESSIONS</span>
+                    <strong id="sessionStat">0</strong>
+                    <small>Completed</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>TASKS</span>
+                    <strong id="taskStat">0</strong>
+                    <small>Completed</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>XP</span>
+                    <strong id="xpStat">0</strong>
+                    <small>Level <span id="levelStat">1</span></small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="panel timer-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span class="eyebrow">FOCUS TIMER</span>
+                            <h3>Pomodoro</h3>
+                        </div>
+
+                        <select id="timerPreset">
+                            <option value="25">25 / 5</option>
+                            <option value="50">50 / 10</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+
+                    <div class="timer-display" id="timerDisplay">
+                        25:00
+                    </div>
+
+                    <div class="timer-status" id="timerStatus">
+                        Ready to focus
+                    </div>
+
+                    <div class="timer-controls">
+
+                        <button id="startTimer" class="primary-button">
+                            Start
+                        </button>
+
+                        <button id="pauseTimer" class="secondary-button">
+                            Pause
+                        </button>
+
+                        <button id="resetTimer" class="secondary-button">
+                            Reset
+                        </button>
+
+                    </div>
+
+                    <div class="timer-progress">
+                        <div id="timerProgress"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="panel today-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span class="eyebrow">TODAY</span>
+                            <h3>Tasks</h3>
+                        </div>
+
+                        <button class="small-button" data-section-target="tasks">
+                            View all
+                        </button>
+                    </div>
+
+                    <div id="todayTasks" class="mini-task-list"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TASKS -->
+
+        <section class="page-section" id="tasks">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">PRODUCTIVITY</span>
+                    <h2>Your Tasks</h2>
+                </div>
+
+                <button id="addTaskButton" class="primary-button">
+                    + Add Task
+                </button>
+
+            </div>
+
+            <div class="task-toolbar">
+
+                <select id="taskFilter">
+                    <option value="all">All Tasks</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <select id="priorityFilter">
+                    <option value="all">All Priorities</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+
+                <select id="sortTasks">
+                    <option value="newest">Newest</option>
+                    <option value="priority">Priority</option>
+                    <option value="due">Due Date</option>
+                </select>
+
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+
+        </section>
+
+
+        <!-- TIMER -->
+
+        <section class="page-section" id="timer">
+
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">DEEP WORK</span>
+                    <h2>Focus Timer</h2>
+                </div>
+            </div>
+
+            <div class="big-timer-card">
+
+                <span id="timerModeLabel">FOCUS</span>
+
+                <div id="bigTimerDisplay">
+                    25:00
+                </div>
+
+                <div class="timer-controls">
+
+                    <button id="bigStart" class="primary-button">
+                        Start
+                    </button>
+
+                    <button id="bigPause" class="secondary-button">
+                        Pause
+                    </button>
+
+                    <button id="bigReset" class="secondary-button">
+                        Reset
+                    </button>
+
+                </div>
+
+                <div class="break-controls">
+
+                    <button id="shortBreak" class="small-button">
+                        Short Break
+                    </button>
+
+                    <button id="longBreak" class="small-button">
+                        Long Break
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUBJECTS -->
+
+        <section class="page-section" id="subjects">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">ORGANIZE</span>
+                    <h2>Subjects</h2>
+                </div>
+
+                <button id="addSubject" class="primary-button">
+                    + Add Subject
+                </button>
+
+            </div>
+
+            <div id="subjectList" class="subject-grid"></div>
+
+        </section>
+
+
+        <!-- ANALYTICS -->
+
+        <section class="page-section" id="analytics">
+
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">YOUR PROGRESS</span>
+                    <h2>Analytics</h2>
+                </div>
+            </div>
+
+            <div class="analytics-grid">
+
+                <div class="panel">
+                    <span class="eyebrow">FOCUS TIME</span>
+                    <h3 id="analyticsFocus">0 minutes</h3>
+                    <div class="fake-chart">
+                        <div style="height:25%"></div>
+                        <div style="height:45%"></div>
+                        <div style="height:35%"></div>
+                        <div style="height:70%"></div>
+                        <div style="height:55%"></div>
+                        <div style="height:90%"></div>
+                        <div style="height:65%"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <span class="eyebrow">COMPLETION</span>
+                    <h3 id="completionRate">0%</h3>
+                    <p>Tasks completed</p>
+                </div>
+
+                <div class="panel">
+                    <span class="eyebrow">LEVEL</span>
+                    <h3 id="analyticsLevel">Level 1</h3>
+                    <p id="analyticsXP">0 XP</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALENDAR -->
+
+        <section class="page-section" id="calendar">
+
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">PLAN</span>
+                    <h2>Calendar</h2>
+                </div>
+            </div>
+
+            <div class="calendar-card">
+
+                <div class="calendar-header">
+                    <button id="prevMonth">←</button>
+                    <h3 id="calendarTitle"></h3>
+                    <button id="nextMonth">→</button>
+                </div>
+
+                <div class="calendar-week">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                </div>
+
+                <div id="calendarGrid" class="calendar-grid"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section class="page-section" id="profile">
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">L</div>
+
+                <h2>LOCKIN User</h2>
+
+                <p>Building consistency one session at a time.</p>
+
+                <div class="profile-stats">
+
+                    <div>
+                        <strong id="profileXP">0</strong>
+                        <span>XP</span>
+                    </div>
+
+                    <div>
+                        <strong id="profileSessions">0</strong>
+                        <span>Sessions</span>
+                    </div>
+
+                    <div>
+                        <strong id="profileTasks">0</strong>
+                        <span>Tasks</span>
+                    </div>
+
+                </div>
+
+                <button id="resetData" class="danger-button">
+                    Reset Study Data
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- TASK MODAL -->
+
+<div class="modal" id="taskModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" data-close="taskModal">×</button>
+
+        <span class="eyebrow">NEW TASK</span>
+        <h2>Add a task</h2>
+
+        <form id="taskForm">
+
+            <input id="taskTitle" type="text" placeholder="Task title" required>
+
+            <select id="taskSubject">
+                <option value="General">General</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Programming">Programming</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Physics">Physics</option>
+            </select>
+
+            <input id="taskDue" type="date">
+
+            <input id="taskMinutes" type="number" min="5" value="25" placeholder="Estimated minutes">
+
+            <select id="taskPriority">
+                <option value="high">High Priority</option>
+                <option value="medium" selected>Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+
+            <button class="primary-button" type="submit">
+                Add Task
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- FOCUS OVERLAY -->
+
+<div id="focusOverlay" class="focus-overlay">
+
+    <button id="exitFocus">×</button>
+
+    <span>FOCUS MODE</span>
+
+    <strong id="focusOverlayTimer">25:00</strong>
+
+    <button id="focusOverlayStart" class="primary-button">
+        Start
+    </button>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
