@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOCKIN — Workout</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="workout-page">
+
+<div class="app">
+
+    <aside class="sidebar workout-sidebar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-box">L</span>
+            LOCKIN
+        </a>
+
+        <div class="environment">
+            <span>ENVIRONMENT</span>
+            <strong>🏋️ WORKOUT</strong>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" data-section="workoutDashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-section="plans">
+                <span>▦</span>
+                Plans
+            </button>
+
+            <button class="nav-item" data-section="exercises">
+                <span>◉</span>
+                Exercises
+            </button>
+
+            <button class="nav-item" data-section="workoutTimer">
+                <span>◷</span>
+                Workout Timer
+            </button>
+
+            <button class="nav-item" data-section="history">
+                <span>◒</span>
+                History
+            </button>
+
+            <button class="nav-item" data-section="prs">
+                <span>★</span>
+                Personal Records
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="workoutTheme" class="side-button">
+                ☼ <span>Toggle Theme</span>
+            </button>
+
+            <a href="index.html" class="side-button">
+                ← <span>Change Mode</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <p class="page-kicker">WORKOUT ENVIRONMENT</p>
+                <h1 id="workoutPageTitle">Dashboard</h1>
+            </div>
+
+            <div class="top-actions">
+
+                <button id="randomWorkout" class="outline-button">
+                    ⚡ Random Workout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section class="page-section active" id="workoutDashboard">
+
+            <div class="workout-hero">
+
+                <div>
+
+                    <span class="eyebrow">TODAY</span>
+
+                    <h2>Time to move.</h2>
+
+                    <p>
+                        Train hard. Recover harder.
+                    </p>
+
+                </div>
+
+                <div class="workout-streak">
+                    🔥
+                    <strong id="workoutStreak">1</strong>
+                    <span>DAY STREAK</span>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>WORKOUTS</span>
+                    <strong id="workoutCount">0</strong>
+                    <small>Completed</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>VOLUME</span>
+                    <strong id="volumeStat">0</strong>
+                    <small>kg</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>EXERCISES</span>
+                    <strong id="exerciseCount">0</strong>
+                    <small>Completed</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>XP</span>
+                    <strong id="workoutXP">0</strong>
+                    <small>Level 1</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <span class="eyebrow">QUICK START</span>
+                            <h3>Choose a workout</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="quick-workouts">
+
+                        <button class="workout-choice" data-workout="Full Body">
+                            <span>🏋️</span>
+                            <strong>Full Body</strong>
+                            <small>45 min</small>
+                        </button>
+
+                        <button class="workout-choice" data-workout="Upper Body">
+                            <span>💪</span>
+                            <strong>Upper Body</strong>
+                            <small>40 min</small>
+                        </button>
+
+                        <button class="workout-choice" data-workout="Lower Body">
+                            <span>🦵</span>
+                            <strong>Lower Body</strong>
+                            <small>45 min</small>
+                        </button>
+
+                        <button class="workout-choice" data-workout="Cardio">
+                            <span>🏃</span>
+                            <strong>Cardio</strong>
+                            <small>30 min</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <span class="eyebrow">QUOTE</span>
+
+                    <h3 id="workoutQuote">
+                        Don't wish for it. Work for it.
+                    </h3>
+
+                    <button id="newWorkoutQuote" class="small-button">
+                        New Quote
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PLANS -->
+
+        <section class="page-section" id="plans">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">TRAINING</span>
+                    <h2>Workout Plans</h2>
+                </div>
+
+            </div>
+
+            <div class="plan-grid">
+
+                <button class="plan-card" data-workout="Push Day">
+                    <span>🔥</span>
+                    <h3>Push</h3>
+                    <p>Chest • Shoulders • Triceps</p>
+                </button>
+
+                <button class="plan-card" data-workout="Pull Day">
+                    <span>🧲</span>
+                    <h3>Pull</h3>
+                    <p>Back • Biceps • Rear Delts</p>
+                </button>
+
+                <button class="plan-card" data-workout="Leg Day">
+                    <span>🦵</span>
+                    <h3>Legs</h3>
+                    <p>Quads • Hamstrings • Calves</p>
+                </button>
+
+                <button class="plan-card" data-workout="Full Body">
+                    <span>⚡</span>
+                    <h3>Full Body</h3>
+                    <p>Complete body session</p>
+                </button>
+
+                <button class="plan-card" data-workout="Cardio">
+                    <span>🏃</span>
+                    <h3>Cardio</h3>
+                    <p>Conditioning & endurance</p>
+                </button>
+
+                <button class="plan-card" data-workout="Recovery">
+                    <span>🧘</span>
+                    <h3>Recovery</h3>
+                    <p>Mobility & recovery</p>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXERCISES -->
+
+        <section class="page-section" id="exercises">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">LIBRARY</span>
+                    <h2>Exercise Library</h2>
+                </div>
+
+                <input id="exerciseSearch" class="search-input"
+                       type="search"
+                       placeholder="Search exercises...">
+
+            </div>
+
+            <div id="exerciseLibrary" class="exercise-grid"></div>
+
+        </section>
+
+
+        <!-- TIMER -->
+
+        <section class="page-section" id="workoutTimer">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">TRAINING TIMER</span>
+                    <h2>Workout Timer</h2>
+                </div>
+
+            </div>
+
+            <div class="big-timer-card workout-timer-card">
+
+                <span id="currentWorkout">
+                    READY
+                </span>
+
+                <div id="workoutTimerDisplay">
+                    00:00
+                </div>
+
+                <div class="timer-controls">
+
+                    <button id="workoutStart" class="primary-button">
+                        Start
+                    </button>
+
+                    <button id="workoutPause" class="secondary-button">
+                        Pause
+                    </button>
+
+                    <button id="workoutReset" class="secondary-button">
+                        Reset
+                    </button>
+
+                </div>
+
+                <div class="set-controls">
+
+                    <button id="minusSet" class="small-button">
+                        − Set
+                    </button>
+
+                    <strong id="setCounter">0 / 4 Sets</strong>
+
+                    <button id="plusSet" class="small-button">
+                        + Set
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+
+        <section class="page-section" id="history">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">PROGRESS</span>
+                    <h2>Workout History</h2>
+                </div>
+
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+
+        </section>
+
+
+        <!-- PR -->
+
+        <section class="page-section" id="prs">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">PERSONAL RECORDS</span>
+                    <h2>Your PRs</h2>
+                </div>
+
+                <button id="addPR" class="primary-button">
+                    + Add PR
+                </button>
+
+            </div>
+
+            <div id="prList" class="pr-grid"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- WORKOUT START MODAL -->
+
+<div class="modal" id="workoutModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" data-close="workoutModal">×</button>
+
+        <span class="eyebrow">WORKOUT SELECTED</span>
+
+        <h2 id="selectedWorkoutName">
+            Full Body
+        </h2>
+
+        <p>
+            Your workout timer is ready.
+        </p>
+
+        <button id="beginWorkout" class="primary-button">
+            Start Workout
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PR MODAL -->
+
+<div class="modal" id="prModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" data-close="prModal">×</button>
+
+        <span class="eyebrow">NEW RECORD</span>
+
+        <h2>Add Personal Record</h2>
+
+        <form id="prForm">
+
+            <input id="prExercise"
+                   type="text"
+                   placeholder="Exercise"
+                   required>
+
+            <input id="prWeight"
+                   type="number"
+                   min="0"
+                   placeholder="Weight (kg)"
+                   required>
+
+            <input id="prReps"
+                   type="number"
+                   min="1"
+                   placeholder="Reps"
+                   required>
+
+            <button type="submit" class="primary-button">
+                Save PR
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
