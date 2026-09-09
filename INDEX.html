@@ -1,0 +1,2349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="FOCUS — A personal study and workout companion."
+    >
+
+    <title>FOCUS — Study. Train. Grow.</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         APP
+    ========================================================== -->
+
+    <div id="app">
+
+        <!-- =====================================================
+             MODE SELECTION
+        ====================================================== -->
+
+        <main id="modeSelection" class="screen active-screen">
+
+            <div class="mode-background">
+                <div class="ambient-orb orb-one"></div>
+                <div class="ambient-orb orb-two"></div>
+                <div class="ambient-orb orb-three"></div>
+            </div>
+
+            <section class="mode-content">
+
+                <div class="brand-area">
+                    <div class="brand-mark">F</div>
+
+                    <h1>FOCUS</h1>
+
+                    <p class="brand-tagline">
+                        Focus. Recover. Move. Repeat.
+                    </p>
+                </div>
+
+                <div class="mode-heading">
+                    <span class="eyebrow">YOUR SPACE</span>
+
+                    <h2>
+                        What are we
+                        <span>doing today?</span>
+                    </h2>
+
+                    <p>
+                        Choose your mode and enter your environment.
+                    </p>
+                </div>
+
+                <div class="mode-grid">
+
+                    <!-- STUDY MODE -->
+
+                    <button
+                        class="mode-card study-mode-card"
+                        id="enterStudyMode"
+                        type="button"
+                    >
+
+                        <div class="mode-card-glow"></div>
+
+                        <div class="mode-icon-wrapper">
+                            <div class="mode-icon">📚</div>
+                        </div>
+
+                        <div class="mode-card-content">
+
+                            <span class="mode-number">01</span>
+
+                            <h3>Study Mode</h3>
+
+                            <p>
+                                Focus deeper, manage your tasks,
+                                and make every study session count.
+                            </p>
+
+                            <div class="mode-features">
+                                <span>⏱ Pomodoro</span>
+                                <span>📋 Tasks</span>
+                                <span>📊 Stats</span>
+                            </div>
+
+                        </div>
+
+                        <div class="mode-arrow">
+                            →
+                        </div>
+
+                    </button>
+
+
+                    <!-- WORKOUT MODE -->
+
+                    <button
+                        class="mode-card workout-mode-card"
+                        id="enterWorkoutMode"
+                        type="button"
+                    >
+
+                        <div class="mode-card-glow"></div>
+
+                        <div class="mode-icon-wrapper">
+                            <div class="mode-icon">🏋️</div>
+                        </div>
+
+                        <div class="mode-card-content">
+
+                            <span class="mode-number">02</span>
+
+                            <h3>Workout Mode</h3>
+
+                            <p>
+                                Train harder, track your progress,
+                                and build your strongest self.
+                            </p>
+
+                            <div class="mode-features">
+                                <span>💪 Training</span>
+                                <span>🔥 Streaks</span>
+                                <span>🏆 PRs</span>
+                            </div>
+
+                        </div>
+
+                        <div class="mode-arrow">
+                            →
+                        </div>
+
+                    </button>
+
+                </div>
+
+                <div class="mode-footer">
+                    <span>BUILD YOUR ROUTINE</span>
+                    <span class="footer-dot"></span>
+                    <span>BUILD YOURSELF</span>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
+             STUDY APPLICATION
+        ====================================================== -->
+
+        <main id="studyApp" class="app-screen study-environment">
+
+            <!-- STUDY HEADER -->
+
+            <header class="app-header study-header">
+
+                <button
+                    id="studyBackButton"
+                    class="back-button"
+                    type="button"
+                >
+                    <span>←</span>
+                    <span>Modes</span>
+                </button>
+
+                <div class="app-brand">
+                    <span class="app-brand-icon">📚</span>
+                    <span>STUDY</span>
+                </div>
+
+                <div class="header-actions">
+
+                    <button
+                        id="studyThemeToggle"
+                        class="icon-button"
+                        type="button"
+                        aria-label="Toggle study theme"
+                    >
+                        ☼
+                    </button>
+
+                    <button
+                        id="studyProfileButton"
+                        class="profile-button"
+                        type="button"
+                    >
+                        <span class="profile-avatar">A</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- STUDY NAVIGATION -->
+
+            <nav class="mode-navigation study-navigation">
+
+                <button
+                    class="nav-item active"
+                    data-study-page="study-dashboard"
+                    type="button"
+                >
+                    <span>⌂</span>
+                    <span>Home</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-study-page="study-focus"
+                    type="button"
+                >
+                    <span>⏱</span>
+                    <span>Focus</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-study-page="study-tasks"
+                    type="button"
+                >
+                    <span>✓</span>
+                    <span>Tasks</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-study-page="study-subjects"
+                    type="button"
+                >
+                    <span>📖</span>
+                    <span>Subjects</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-study-page="study-sounds"
+                    type="button"
+                >
+                    <span>♫</span>
+                    <span>Sounds</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-study-page="study-analytics"
+                    type="button"
+                >
+                    <span>◔</span>
+                    <span>Stats</span>
+                </button>
+
+            </nav>
+
+
+            <!-- STUDY CONTENT -->
+
+            <div class="app-content">
+
+                <!-- ================= STUDY DASHBOARD ================= -->
+
+                <section
+                    id="study-dashboard"
+                    class="internal-page active-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">STUDY SPACE</span>
+
+                            <h1>
+                                Welcome back,
+                                <span id="studyGreeting">Ayaan</span> 👋
+                            </h1>
+
+                            <p id="studyCurrentDate">
+                                Let's make today count.
+                            </p>
+                        </div>
+
+                        <div class="daily-streak">
+                            <span>🔥</span>
+
+                            <div>
+                                <strong id="studyStreak">0</strong>
+                                <small>day streak</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- STUDY STATS -->
+
+                    <div class="stats-grid study-stats">
+
+                        <article class="stat-card">
+                            <span class="stat-icon">⏱</span>
+
+                            <div>
+                                <strong id="studyTodayTime">
+                                    0m
+                                </strong>
+
+                                <small>
+                                    Study Time
+                                </small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">🍅</span>
+
+                            <div>
+                                <strong id="studyPomodoros">
+                                    0
+                                </strong>
+
+                                <small>
+                                    Pomodoros
+                                </small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">✓</span>
+
+                            <div>
+                                <strong id="studyTasksCompleted">
+                                    0
+                                </strong>
+
+                                <small>
+                                    Tasks Done
+                                </small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">🎯</span>
+
+                            <div>
+                                <strong id="studyDailyProgress">
+                                    0%
+                                </strong>
+
+                                <small>
+                                    Daily Goal
+                                </small>
+                            </div>
+                        </article>
+
+                    </div>
+
+
+                    <!-- STUDY GOALS -->
+
+                    <section class="content-section">
+
+                        <div class="section-heading">
+                            <div>
+                                <span class="eyebrow">TODAY</span>
+                                <h2>Daily Goals</h2>
+                            </div>
+                        </div>
+
+                        <div class="goal-grid">
+
+                            <article class="goal-card">
+
+                                <div class="goal-top">
+                                    <span>📚 Study</span>
+                                    <strong id="studyGoalText">
+                                        0 / 120 min
+                                    </strong>
+                                </div>
+
+                                <div class="progress-track">
+                                    <div
+                                        id="studyGoalProgress"
+                                        class="progress-fill"
+                                    ></div>
+                                </div>
+
+                            </article>
+
+
+                            <article class="goal-card">
+
+                                <div class="goal-top">
+                                    <span>🍅 Pomodoros</span>
+                                    <strong id="pomodoroGoalText">
+                                        0 / 4
+                                    </strong>
+                                </div>
+
+                                <div class="progress-track">
+                                    <div
+                                        id="pomodoroGoalProgress"
+                                        class="progress-fill"
+                                    ></div>
+                                </div>
+
+                            </article>
+
+
+                            <article class="goal-card">
+
+                                <div class="goal-top">
+                                    <span>✓ Tasks</span>
+                                    <strong id="studyTaskGoalText">
+                                        0 / 5
+                                    </strong>
+                                </div>
+
+                                <div class="progress-track">
+                                    <div
+                                        id="studyTaskGoalProgress"
+                                        class="progress-fill"
+                                    ></div>
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- FOCUS + TASKS -->
+
+                    <div class="dashboard-columns">
+
+                        <section class="dashboard-panel focus-preview">
+
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="eyebrow">FOCUS</span>
+                                    <h2>Ready to focus?</h2>
+                                </div>
+                            </div>
+
+                            <div class="mini-timer">
+
+                                <div
+                                    id="studyMiniTimer"
+                                    class="mini-timer-display"
+                                >
+                                    25:00
+                                </div>
+
+                                <span id="studyMiniTimerStatus">
+                                    Ready
+                                </span>
+
+                                <button
+                                    id="startMiniPomodoro"
+                                    class="primary-button"
+                                    type="button"
+                                >
+                                    Start Focus
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+                        <section class="dashboard-panel priority-panel">
+
+                            <div class="panel-heading">
+
+                                <div>
+                                    <span class="eyebrow">PRIORITY</span>
+                                    <h2>Today's Tasks</h2>
+                                </div>
+
+                                <button
+                                    class="text-button"
+                                    data-study-page="study-tasks"
+                                    type="button"
+                                >
+                                    View all →
+                                </button>
+
+                            </div>
+
+                            <div
+                                id="studyPriorityTasks"
+                                class="priority-list"
+                            >
+                                <div class="empty-state">
+                                    <span>✓</span>
+                                    <p>No priority tasks yet.</p>
+                                </div>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+
+                    <!-- QUOTE -->
+
+                    <section class="quote-card study-quote-card">
+
+                        <span class="quote-mark">“</span>
+
+                        <p id="studyDailyQuote">
+                            The secret of getting ahead is getting started.
+                        </p>
+
+                        <span class="quote-author">
+                            — Mark Twain
+                        </span>
+
+                    </section>
+
+                </section>
+
+
+                <!-- ================= FOCUS PAGE ================= -->
+
+                <section
+                    id="study-focus"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading compact-heading">
+
+                        <div>
+                            <span class="eyebrow">DEEP WORK</span>
+                            <h1>Focus Timer</h1>
+                            <p>Block out the noise. Get the work done.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="focus-layout">
+
+                        <section class="focus-timer-card">
+
+                            <div class="timer-top">
+
+                                <span id="timerSubjectLabel">
+                                    GENERAL STUDY
+                                </span>
+
+                                <span id="timerStatus">
+                                    READY
+                                </span>
+
+                            </div>
+
+                            <div
+                                id="pomodoroTimer"
+                                class="pomodoro-timer"
+                            >
+                                25:00
+                            </div>
+
+                            <div class="timer-mode">
+                                <span id="currentSession">
+                                    Focus Session 1
+                                </span>
+
+                                <span>
+                                    /
+                                    <span id="sessionsTarget">
+                                        4
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="timer-controls">
+
+                                <button
+                                    id="startPomodoro"
+                                    class="primary-button large-button"
+                                    type="button"
+                                >
+                                    ▶ Start
+                                </button>
+
+                                <button
+                                    id="pausePomodoro"
+                                    class="secondary-button"
+                                    type="button"
+                                >
+                                    ❚❚ Pause
+                                </button>
+
+                                <button
+                                    id="resetPomodoro"
+                                    class="icon-button"
+                                    type="button"
+                                >
+                                    ↻
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+                        <aside class="focus-settings-card">
+
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="eyebrow">SETTINGS</span>
+                                    <h2>Session</h2>
+                                </div>
+                            </div>
+
+                            <div class="timer-presets">
+
+                                <button
+                                    class="timer-preset active"
+                                    data-focus="25"
+                                    data-break="5"
+                                    type="button"
+                                >
+                                    <strong>25 / 5</strong>
+                                    <span>Classic</span>
+                                </button>
+
+                                <button
+                                    class="timer-preset"
+                                    data-focus="50"
+                                    data-break="10"
+                                    type="button"
+                                >
+                                    <strong>50 / 10</strong>
+                                    <span>Deep Work</span>
+                                </button>
+
+                                <button
+                                    class="timer-preset"
+                                    data-focus="90"
+                                    data-break="15"
+                                    type="button"
+                                >
+                                    <strong>90 / 15</strong>
+                                    <span>Intense</span>
+                                </button>
+
+                            </div>
+
+
+                            <label class="field-label">
+                                Subject
+                            </label>
+
+                            <div class="inline-field">
+
+                                <select id="subjectSelect">
+                                    <option value="General">
+                                        General Study
+                                    </option>
+                                </select>
+
+                                <button
+                                    id="addSubject"
+                                    class="small-button"
+                                    type="button"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+
+                            <label class="field-label">
+                                Focus Task
+                            </label>
+
+                            <select id="pomodoroTask">
+                                <option value="">
+                                    No task selected
+                                </option>
+                            </select>
+
+
+                            <button
+                                id="focusModeButton"
+                                class="secondary-button full-button"
+                                type="button"
+                            >
+                                ⛶ Enter Focus Mode
+                            </button>
+
+                        </aside>
+
+                    </div>
+
+
+                    <!-- BREAK SYSTEM -->
+
+                    <section class="break-section">
+
+                        <div class="section-heading">
+                            <div>
+                                <span class="eyebrow">RECOVER</span>
+                                <h2>Take a proper break</h2>
+                                <p>
+                                    Recharge before the next session.
+                                </p>
+                            </div>
+
+                            <div class="break-countdown">
+                                <span>Break</span>
+                                <strong id="breakTimer">05:00</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="break-grid">
+
+                            <button
+                                class="break-card"
+                                data-break="breathing"
+                                type="button"
+                            >
+                                <span class="break-icon">🌿</span>
+                                <strong>Breathing</strong>
+                                <small>Calm your mind</small>
+                            </button>
+
+                            <button
+                                class="break-card"
+                                data-break="stretch"
+                                type="button"
+                            >
+                                <span class="break-icon">🧘</span>
+                                <strong>Stretch</strong>
+                                <small>Loosen up</small>
+                            </button>
+
+                            <button
+                                class="break-card"
+                                data-break="eye"
+                                type="button"
+                            >
+                                <span class="break-icon">👁</span>
+                                <strong>Eye Relax</strong>
+                                <small>Rest your eyes</small>
+                            </button>
+
+                            <button
+                                class="break-card"
+                                data-break="game"
+                                type="button"
+                            >
+                                <span class="break-icon">🎮</span>
+                                <strong>Quick Game</strong>
+                                <small>Have some fun</small>
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                </section>
+
+
+                <!-- ================= TASKS ================= -->
+
+                <section
+                    id="study-tasks"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">PRODUCTIVITY</span>
+                            <h1>Tasks</h1>
+                            <p>Know what needs to get done.</p>
+                        </div>
+
+                        <button
+                            id="addTaskButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            + Add Task
+                        </button>
+
+                    </div>
+
+
+                    <div class="task-toolbar">
+
+                        <div class="task-filters">
+
+                            <button
+                                class="filter-btn active"
+                                data-filter="all"
+                                type="button"
+                            >
+                                All
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                data-filter="active"
+                                type="button"
+                            >
+                                Active
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                data-filter="completed"
+                                type="button"
+                            >
+                                Completed
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                data-filter="overdue"
+                                type="button"
+                            >
+                                Overdue
+                            </button>
+
+                        </div>
+
+                        <select id="taskSort">
+                            <option value="priority">
+                                Priority
+                            </option>
+
+                            <option value="due">
+                                Due Date
+                            </option>
+
+                            <option value="created">
+                                Recently Added
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        id="taskList"
+                        class="task-list"
+                    ></div>
+
+                </section>
+
+
+                <!-- ================= SUBJECTS ================= -->
+
+                <section
+                    id="study-subjects"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">LEARNING</span>
+                            <h1>Subjects</h1>
+                            <p>Track where your study time goes.</p>
+                        </div>
+
+                        <button
+                            id="addSubjectFromSubjects"
+                            class="primary-button"
+                            type="button"
+                        >
+                            + Add Subject
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="subjectGrid"
+                        class="subject-grid"
+                    ></div>
+
+                </section>
+
+
+                <!-- ================= SOUNDS ================= -->
+
+                <section
+                    id="study-sounds"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">AMBIENCE</span>
+                            <h1>Study Sounds</h1>
+                            <p>Create your perfect focus environment.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="music-player">
+
+                        <div class="music-cover">
+                            🎧
+                        </div>
+
+                        <div class="music-info">
+
+                            <span>NOW PLAYING</span>
+
+                            <h2 id="currentTrack">
+                                Lo-Fi Focus
+                            </h2>
+
+                            <p>
+                                Calm beats for deep work
+                            </p>
+
+                            <div class="music-progress">
+                                <div
+                                    id="musicProgress"
+                                    class="music-progress-fill"
+                                ></div>
+                            </div>
+
+                        </div>
+
+                        <div class="music-controls">
+
+                            <button
+                                id="previousTrack"
+                                type="button"
+                            >
+                                ⏮
+                            </button>
+
+                            <button
+                                id="musicPlay"
+                                class="music-play"
+                                type="button"
+                            >
+                                ▶
+                            </button>
+
+                            <button
+                                id="nextTrack"
+                                type="button"
+                            >
+                                ⏭
+                            </button>
+
+                        </div>
+
+                        <div class="volume-control">
+                            <span>🔊</span>
+
+                            <input
+                                id="musicVolume"
+                                type="range"
+                                min="0"
+                                max="100"
+                                value="50"
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="sound-grid">
+
+                        <button
+                            class="sound-option active"
+                            data-sound="lofi"
+                            type="button"
+                        >
+                            <span>🎧</span>
+                            <strong>Lo-Fi</strong>
+                            <small>Chill beats</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="rain"
+                            type="button"
+                        >
+                            <span>🌧</span>
+                            <strong>Rain</strong>
+                            <small>Soft rainfall</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="cafe"
+                            type="button"
+                        >
+                            <span>☕</span>
+                            <strong>Café</strong>
+                            <small>Background chatter</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="ocean"
+                            type="button"
+                        >
+                            <span>🌊</span>
+                            <strong>Ocean</strong>
+                            <small>Calm waves</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="forest"
+                            type="button"
+                        >
+                            <span>🌲</span>
+                            <strong>Forest</strong>
+                            <small>Nature ambience</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="fireplace"
+                            type="button"
+                        >
+                            <span>🔥</span>
+                            <strong>Fireplace</strong>
+                            <small>Warm crackling</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="classical"
+                            type="button"
+                        >
+                            <span>🎻</span>
+                            <strong>Classical</strong>
+                            <small>Instrumental focus</small>
+                        </button>
+
+                        <button
+                            class="sound-option"
+                            data-sound="white-noise"
+                            type="button"
+                        >
+                            <span>〰</span>
+                            <strong>White Noise</strong>
+                            <small>Pure focus</small>
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= STUDY ANALYTICS ================= -->
+
+                <section
+                    id="study-analytics"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">PROGRESS</span>
+                            <h1>Study Analytics</h1>
+                            <p>See how you're actually spending your time.</p>
+                        </div>
+
+                        <select id="studyChartRange">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30">Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="analytics-stat-grid">
+
+                        <article class="analytics-stat">
+                            <span>📚</span>
+                            <strong id="analyticsStudyTime">0h</strong>
+                            <small>Study Time</small>
+                        </article>
+
+                        <article class="analytics-stat">
+                            <span>🍅</span>
+                            <strong id="analyticsPomodoros">0</strong>
+                            <small>Pomodoros</small>
+                        </article>
+
+                        <article class="analytics-stat">
+                            <span>✓</span>
+                            <strong id="analyticsTasks">0%</strong>
+                            <small>Task Completion</small>
+                        </article>
+
+                    </div>
+
+
+                    <section class="analytics-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">OVERVIEW</span>
+                                <h2>Study Activity</h2>
+                            </div>
+                        </div>
+
+                        <canvas
+                            id="studyChart"
+                            aria-label="Study activity chart"
+                        ></canvas>
+
+                    </section>
+
+
+                    <div class="analytics-columns">
+
+                        <section class="analytics-panel">
+
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="eyebrow">SUBJECTS</span>
+                                    <h2>Study Breakdown</h2>
+                                </div>
+                            </div>
+
+                            <div
+                                id="analyticsSubjectList"
+                                class="analytics-list"
+                            ></div>
+
+                        </section>
+
+
+                        <section class="analytics-panel">
+
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="eyebrow">REVIEW</span>
+                                    <h2>This Week</h2>
+                                </div>
+                            </div>
+
+                            <div class="review-list">
+
+                                <div>
+                                    <span>Best Study Day</span>
+                                    <strong id="bestStudyDay">—</strong>
+                                </div>
+
+                                <div>
+                                    <span>Top Subject</span>
+                                    <strong id="topSubject">—</strong>
+                                </div>
+
+                                <div>
+                                    <span>Task Completion</span>
+                                    <strong id="taskCompletionRate">0%</strong>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+        <!-- =====================================================
+             WORKOUT APPLICATION
+        ====================================================== -->
+
+        <main id="workoutApp" class="app-screen workout-environment">
+
+            <!-- WORKOUT HEADER -->
+
+            <header class="app-header workout-header">
+
+                <button
+                    id="workoutBackButton"
+                    class="back-button"
+                    type="button"
+                >
+                    <span>←</span>
+                    <span>Modes</span>
+                </button>
+
+                <div class="app-brand">
+                    <span class="app-brand-icon">🏋️</span>
+                    <span>WORKOUT</span>
+                </div>
+
+                <div class="header-actions">
+
+                    <button
+                        id="workoutThemeToggle"
+                        class="icon-button"
+                        type="button"
+                        aria-label="Toggle workout theme"
+                    >
+                        ◐
+                    </button>
+
+                    <button
+                        id="workoutProfileButton"
+                        class="profile-button"
+                        type="button"
+                    >
+                        <span class="profile-avatar">A</span>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- WORKOUT NAV -->
+
+            <nav class="mode-navigation workout-navigation">
+
+                <button
+                    class="nav-item active"
+                    data-workout-page="workout-dashboard"
+                    type="button"
+                >
+                    <span>⌂</span>
+                    <span>Home</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-workout-page="workout-plans"
+                    type="button"
+                >
+                    <span>📋</span>
+                    <span>Plans</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-workout-page="workout-exercises"
+                    type="button"
+                >
+                    <span>💪</span>
+                    <span>Exercises</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-workout-page="workout-session"
+                    type="button"
+                >
+                    <span>⏱</span>
+                    <span>Session</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-workout-page="workout-stats"
+                    type="button"
+                >
+                    <span>📈</span>
+                    <span>Stats</span>
+                </button>
+
+            </nav>
+
+
+            <!-- WORKOUT CONTENT -->
+
+            <div class="app-content">
+
+                <!-- ================= WORKOUT DASHBOARD ================= -->
+
+                <section
+                    id="workout-dashboard"
+                    class="internal-page active-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">TRAINING SPACE</span>
+
+                            <h1>
+                                Let's get to work. 🔥
+                            </h1>
+
+                            <p id="workoutDate">
+                                Today's training awaits.
+                            </p>
+                        </div>
+
+                        <div class="daily-streak workout-streak">
+
+                            <span>🔥</span>
+
+                            <div>
+                                <strong id="workoutStreak">0</strong>
+                                <small>day streak</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WORKOUT STATS -->
+
+                    <div class="stats-grid workout-stats">
+
+                        <article class="stat-card">
+                            <span class="stat-icon">🏋️</span>
+
+                            <div>
+                                <strong id="workoutCount">0</strong>
+                                <small>Workouts</small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">⏱</span>
+
+                            <div>
+                                <strong id="totalWorkoutTime">0h</strong>
+                                <small>Training Time</small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">💪</span>
+
+                            <div>
+                                <strong id="totalSetsCompleted">0</strong>
+                                <small>Sets</small>
+                            </div>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">🏆</span>
+
+                            <div>
+                                <strong id="workoutRecords">0</strong>
+                                <small>Personal Records</small>
+                            </div>
+                        </article>
+
+                    </div>
+
+
+                    <!-- TODAY'S WORKOUT -->
+
+                    <section class="featured-workout">
+
+                        <div class="featured-workout-content">
+
+                            <span class="eyebrow">
+                                TODAY'S TRAINING
+                            </span>
+
+                            <h2 id="activeWorkoutName">
+                                Full Body
+                            </h2>
+
+                            <p id="activeWorkoutMeta">
+                                7 exercises · ~45 minutes
+                            </p>
+
+                            <button
+                                id="startWorkout"
+                                class="primary-button workout-primary-button"
+                                type="button"
+                            >
+                                Start Workout →
+                            </button>
+
+                        </div>
+
+                        <div class="featured-workout-icon">
+                            🏋️
+                        </div>
+
+                    </section>
+
+
+                    <!-- EXERCISES -->
+
+                    <section class="content-section">
+
+                        <div class="section-heading">
+
+                            <div>
+                                <span class="eyebrow">TODAY</span>
+                                <h2>Exercises</h2>
+                            </div>
+
+                            <button
+                                class="text-button"
+                                data-workout-page="workout-exercises"
+                                type="button"
+                            >
+                                Exercise Library →
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="todayExerciseList"
+                            class="exercise-preview-grid"
+                        ></div>
+
+                    </section>
+
+
+                    <!-- WORKOUT QUOTE -->
+
+                    <section class="quote-card workout-quote-card">
+
+                        <span class="quote-mark">“</span>
+
+                        <p id="workoutQuote">
+                            The pain you feel today will be the strength
+                            you feel tomorrow.
+                        </p>
+
+                    </section>
+
+                </section>
+
+
+                <!-- ================= WORKOUT PLANS ================= -->
+
+                <section
+                    id="workout-plans"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">PROGRAMS</span>
+                            <h1>Workout Plans</h1>
+                            <p>Choose your training style.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="plan-filter">
+
+                        <button
+                            class="plan-filter-btn active"
+                            data-plan-filter="all"
+                            type="button"
+                        >
+                            All
+                        </button>
+
+                        <button
+                            class="plan-filter-btn"
+                            data-plan-filter="home"
+                            type="button"
+                        >
+                            Home
+                        </button>
+
+                        <button
+                            class="plan-filter-btn"
+                            data-plan-filter="gym"
+                            type="button"
+                        >
+                            Gym
+                        </button>
+
+                        <button
+                            class="plan-filter-btn"
+                            data-plan-filter="cardio"
+                            type="button"
+                        >
+                            Cardio
+                        </button>
+
+                        <button
+                            class="plan-filter-btn"
+                            data-plan-filter="recovery"
+                            type="button"
+                        >
+                            Recovery
+                        </button>
+
+                    </div>
+
+
+                    <div class="workout-plan-grid">
+
+                        <button
+                            class="workout-plan-option"
+                            data-plan="full-body"
+                            type="button"
+                        >
+                            <span>💪</span>
+                            <strong>Full Body</strong>
+                            <small>Balanced training</small>
+                        </button>
+
+                        <button
+                            class="workout-plan-option"
+                            data-plan="upper-lower"
+                            type="button"
+                        >
+                            <span>🏋️</span>
+                            <strong>Upper / Lower</strong>
+                            <small>Structured split</small>
+                        </button>
+
+                        <button
+                            class="workout-plan-option"
+                            data-plan="ppl"
+                            type="button"
+                        >
+                            <span>🔥</span>
+                            <strong>Push / Pull / Legs</strong>
+                            <small>Classic split</small>
+                        </button>
+
+                        <button
+                            class="workout-plan-option"
+                            data-plan="cardio"
+                            type="button"
+                        >
+                            <span>🏃</span>
+                            <strong>Cardio</strong>
+                            <small>Build endurance</small>
+                        </button>
+
+                        <button
+                            class="workout-plan-option"
+                            data-plan="recovery"
+                            type="button"
+                        >
+                            <span>🧘</span>
+                            <strong>Recovery</strong>
+                            <small>Recover & reset</small>
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= EXERCISE LIBRARY ================= -->
+
+                <section
+                    id="workout-exercises"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">LIBRARY</span>
+                            <h1>Exercise Library</h1>
+                            <p>Find your next movement.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="exercise-search">
+
+                        <span>⌕</span>
+
+                        <input
+                            id="exerciseSearch"
+                            type="search"
+                            placeholder="Search exercises..."
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="exerciseLibrary"
+                        class="exercise-library"
+                    ></div>
+
+                </section>
+
+
+                <!-- ================= WORKOUT SESSION ================= -->
+
+                <section
+                    id="workout-session"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading compact-heading">
+
+                        <div>
+                            <span class="eyebrow">LIVE SESSION</span>
+                            <h1 id="sessionWorkoutName">
+                                Full Body
+                            </h1>
+                            <p id="sessionWorkoutProgress">
+                                Exercise 1 of 7
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="workout-session-layout">
+
+                        <section class="active-exercise-card">
+
+                            <div class="exercise-demo">
+
+                                <div
+                                    id="exerciseDemo"
+                                    class="exercise-demo-placeholder"
+                                >
+                                    💪
+                                </div>
+
+                            </div>
+
+                            <div class="active-exercise-info">
+
+                                <span class="eyebrow">
+                                    CURRENT EXERCISE
+                                </span>
+
+                                <h2 id="currentExercise">
+                                    Push Ups
+                                </h2>
+
+                                <p id="currentExerciseDescription">
+                                    Keep your body straight and lower
+                                    your chest with control.
+                                </p>
+
+                                <div class="exercise-meta">
+
+                                    <div>
+                                        <span>SET</span>
+                                        <strong>
+                                            <span id="currentSet">1</span>
+                                            /
+                                            <span id="totalSets">3</span>
+                                        </strong>
+                                    </div>
+
+                                    <div>
+                                        <span>REPS</span>
+                                        <strong id="targetReps">
+                                            12
+                                        </strong>
+                                    </div>
+
+                                    <div>
+                                        <span>REST</span>
+                                        <strong id="targetRest">
+                                            60s
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+                        <aside class="workout-control-card">
+
+                            <div class="workout-live-timer">
+
+                                <span>SESSION TIME</span>
+
+                                <strong id="workoutTimer">
+                                    00:00
+                                </strong>
+
+                            </div>
+
+                            <button
+                                id="completeSet"
+                                class="primary-button workout-primary-button full-button"
+                                type="button"
+                            >
+                                ✓ Complete Set
+                            </button>
+
+                            <button
+                                id="startRest"
+                                class="secondary-button full-button"
+                                type="button"
+                            >
+                                Start Rest
+                            </button>
+
+                            <div
+                                id="workoutRestTimer"
+                                class="rest-timer"
+                            >
+                                60
+                            </div>
+
+                            <button
+                                id="nextExercise"
+                                class="secondary-button full-button"
+                                type="button"
+                            >
+                                Next Exercise →
+                            </button>
+
+                        </aside>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= WORKOUT STATS ================= -->
+
+                <section
+                    id="workout-stats"
+                    class="internal-page"
+                >
+
+                    <div class="page-heading">
+
+                        <div>
+                            <span class="eyebrow">PERFORMANCE</span>
+                            <h1>Workout Stats</h1>
+                            <p>Track your progress over time.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="analytics-stat-grid workout-analytics">
+
+                        <article class="analytics-stat">
+                            <span>🏋️</span>
+                            <strong id="analyticsWorkouts">0</strong>
+                            <small>Workouts</small>
+                        </article>
+
+                        <article class="analytics-stat">
+                            <span>⏱</span>
+                            <strong id="analyticsWorkoutTime">0h</strong>
+                            <small>Training Time</small>
+                        </article>
+
+                        <article class="analytics-stat">
+                            <span>💪</span>
+                            <strong id="analyticsWorkoutSets">0</strong>
+                            <small>Sets Completed</small>
+                        </article>
+
+                        <article class="analytics-stat">
+                            <span>🔥</span>
+                            <strong id="analyticsWorkoutStreak">0</strong>
+                            <small>Best Streak</small>
+                        </article>
+
+                    </div>
+
+
+                    <div class="records-grid">
+
+                        <article class="record-card">
+                            <span>🏆</span>
+                            <div>
+                                <small>Longest Workout</small>
+                                <strong id="longestWorkout">0 min</strong>
+                            </div>
+                        </article>
+
+                        <article class="record-card">
+                            <span>💪</span>
+                            <div>
+                                <small>Most Sets</small>
+                                <strong id="mostSets">0</strong>
+                            </div>
+                        </article>
+
+                        <article class="record-card">
+                            <span>🔥</span>
+                            <div>
+                                <small>Longest Streak</small>
+                                <strong id="longestWorkoutStreak">0 days</strong>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+
+        <!-- =====================================================
+             PROFILE
+        ====================================================== -->
+
+        <aside
+            id="profilePanel"
+            class="profile-panel"
+            aria-hidden="true"
+        >
+
+            <div class="profile-panel-header">
+
+                <h2>Profile</h2>
+
+                <button
+                    id="closeProfile"
+                    class="icon-button"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="profile-main">
+
+                <div class="large-avatar">
+                    A
+                </div>
+
+                <h3 id="profileName">
+                    Ayaan
+                </h3>
+
+                <span id="profileLevel">
+                    Level 1
+                </span>
+
+            </div>
+
+
+            <div class="profile-xp">
+
+                <div>
+                    <span>XP</span>
+                    <strong id="totalXP">0 XP</strong>
+                </div>
+
+                <div class="xp-track">
+                    <div
+                        id="xpProgress"
+                        class="xp-fill"
+                    ></div>
+                </div>
+
+            </div>
+
+
+            <div class="profile-stats">
+
+                <div>
+                    <strong id="profileStudyHours">0h</strong>
+                    <span>Study</span>
+                </div>
+
+                <div>
+                    <strong id="profileWorkouts">0</strong>
+                    <span>Workouts</span>
+                </div>
+
+                <div>
+                    <strong id="profileAchievements">0</strong>
+                    <span>Achievements</span>
+                </div>
+
+            </div>
+
+
+            <div class="profile-badges">
+
+                <span class="eyebrow">BADGES</span>
+
+                <div id="profileBadges">
+                    <span class="badge-placeholder">🏆</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             ACHIEVEMENT OVERLAY
+        ====================================================== -->
+
+        <div
+            id="achievementOverlay"
+            class="modal-overlay"
+            aria-hidden="true"
+        >
+
+            <div class="achievement-unlock">
+
+                <button
+                    id="closeAchievement"
+                    class="modal-close"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <div class="achievement-confetti"></div>
+
+                <div
+                    id="unlockSticker"
+                    class="unlock-sticker"
+                >
+                    🏆
+                </div>
+
+                <span class="eyebrow">
+                    ACHIEVEMENT UNLOCKED
+                </span>
+
+                <h2 id="unlockTitle">
+                    Focus Beast
+                </h2>
+
+                <p id="unlockDescription">
+                    You completed an incredible focus streak.
+                </p>
+
+                <strong id="unlockXP">
+                    +100 XP
+                </strong>
+
+                <button
+                    class="primary-button"
+                    id="achievementContinue"
+                    type="button"
+                >
+                    LET'S GO 🔥
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TASK MODAL
+        ====================================================== -->
+
+        <div
+            id="taskModal"
+            class="modal-overlay"
+            aria-hidden="true"
+        >
+
+            <div class="modal-card">
+
+                <div class="modal-header">
+
+                    <div>
+                        <span class="eyebrow">PRODUCTIVITY</span>
+                        <h2>Add Task</h2>
+                    </div>
+
+                    <button
+                        id="closeTaskModal"
+                        class="modal-close"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <form id="taskForm">
+
+                    <label>
+                        Task Title
+
+                        <input
+                            id="taskTitle"
+                            type="text"
+                            placeholder="What needs to be done?"
+                            required
+                        >
+                    </label>
+
+
+                    <div class="form-row">
+
+                        <label>
+                            Priority
+
+                            <select id="taskPriority">
+                                <option value="high">
+                                    High
+                                </option>
+
+                                <option value="medium" selected>
+                                    Medium
+                                </option>
+
+                                <option value="low">
+                                    Low
+                                </option>
+                            </select>
+                        </label>
+
+
+                        <label>
+                            Subject
+
+                            <select id="taskSubject">
+                                <option value="General">
+                                    General
+                                </option>
+                            </select>
+                        </label>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <label>
+                            Due Date
+
+                            <input
+                                id="taskDueDate"
+                                type="date"
+                            >
+                        </label>
+
+
+                        <label>
+                            Estimated Time
+
+                            <input
+                                id="taskEstimatedTime"
+                                type="number"
+                                min="5"
+                                step="5"
+                                placeholder="30"
+                            >
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button full-button"
+                        type="submit"
+                    >
+                        Add Task
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             EXERCISE MODAL
+        ====================================================== -->
+
+        <div
+            id="exerciseModal"
+            class="modal-overlay"
+            aria-hidden="true"
+        >
+
+            <div class="modal-card exercise-modal-card">
+
+                <button
+                    id="closeExerciseModal"
+                    class="modal-close"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <div
+                    id="exerciseDemo"
+                    class="modal-exercise-demo"
+                >
+                    💪
+                </div>
+
+                <span
+                    id="modalExerciseMuscle"
+                    class="eyebrow"
+                >
+                    CHEST
+                </span>
+
+                <h2 id="modalExerciseName">
+                    Push Ups
+                </h2>
+
+                <p id="modalExerciseDescription">
+                    A fundamental upper-body movement.
+                </p>
+
+
+                <div class="exercise-detail-grid">
+
+                    <div>
+                        <span>SETS</span>
+                        <strong id="modalSets">3</strong>
+                    </div>
+
+                    <div>
+                        <span>REPS</span>
+                        <strong id="modalReps">12</strong>
+                    </div>
+
+                    <div>
+                        <span>REST</span>
+                        <strong id="modalRest">60s</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="exercise-tips">
+
+                    <strong>💡 Tips</strong>
+
+                    <p id="modalExerciseTips">
+                        Keep your core tight and control every rep.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="addExerciseToWorkout"
+                    class="primary-button full-button"
+                    type="button"
+                >
+                    Add to Workout
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             BREAK GAME MODAL
+        ====================================================== -->
+
+        <div
+            id="breakGameModal"
+            class="modal-overlay"
+            aria-hidden="true"
+        >
+
+            <div class="modal-card game-modal">
+
+                <button
+                    id="closeBreakGame"
+                    class="modal-close"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <span class="eyebrow">QUICK BREAK</span>
+
+                <h2 id="breakGameTitle">
+                    Reaction Test
+                </h2>
+
+                <div
+                    id="gameArea"
+                    class="game-area"
+                >
+                    <button
+                        id="startGame"
+                        class="primary-button"
+                        type="button"
+                    >
+                        Start Game
+                    </button>
+                </div>
+
+                <div id="gameResult"></div>
+
+                <button
+                    id="closeGame"
+                    class="secondary-button full-button"
+                    type="button"
+                >
+                    Done
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PERSONAL RECORD OVERLAY
+        ====================================================== -->
+
+        <div
+            id="recordOverlay"
+            class="modal-overlay"
+            aria-hidden="true"
+        >
+
+            <div class="record-celebration">
+
+                <div class="record-icon">
+                    🏆
+                </div>
+
+                <span class="eyebrow">
+                    NEW PERSONAL RECORD
+                </span>
+
+                <h2 id="recordTitle">
+                    New Record!
+                </h2>
+
+                <strong id="recordValue">
+                    20 Sets
+                </strong>
+
+                <p id="recordMessage">
+                    You just beat your previous best.
+                </p>
+
+                <button
+                    id="closeRecord"
+                    class="primary-button"
+                    type="button"
+                >
+                    LET'S GOO 🔥
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TOAST / NOTIFICATIONS
+        ====================================================== -->
+
+        <div
+            id="toastContainer"
+            class="toast-container"
+            aria-live="polite"
+        ></div>
+
+
+        <!-- =====================================================
+             FOCUS MODE
+        ====================================================== -->
+
+        <div
+            id="focusModeOverlay"
+            class="focus-mode-overlay"
+            aria-hidden="true"
+        >
+
+            <div class="focus-mode-content">
+
+                <span class="eyebrow">
+                    DEEP WORK
+                </span>
+
+                <div
+                    id="focusModeTimer"
+                    class="focus-mode-timer"
+                >
+                    25:00
+                </div>
+
+                <p id="focusModeSubject">
+                    General Study
+                </p>
+
+                <button
+                    id="exitFocusMode"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Exit Focus Mode
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
